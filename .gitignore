@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+.env
+.venv/
+study_hub.db
+*.db
+static/resources/uploads/
+var/
+.DS_Store

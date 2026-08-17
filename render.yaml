@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: ymca-study-hub
+    runtime: python
+    region: singapore
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    healthCheckPath: /health
+    numInstances: 1
+    disk:
+      name: ymca-study-hub-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: STAFF_NAME
+        value: Mohit
+      - key: STAFF_PASSWORD
+        sync: false
+      - key: DATA_DIR
+        value: /var/data
+      - key: DB_PATH
+        value: /var/data/study_hub.db
+      - key: UPLOAD_DIR
+        value: /var/data/uploads
+      - key: COOKIE_SECURE
+        value: "1"
