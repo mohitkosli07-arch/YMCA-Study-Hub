@@ -17,7 +17,7 @@ app.config.update(
 DATA_DIR = os.environ.get("DATA_DIR", "")
 UPLOAD_DIR = os.environ.get("UPLOAD_DIR") or (os.path.join(DATA_DIR, "uploads") if DATA_DIR else os.path.join(app.static_folder, "resources", "uploads"))
 ALLOWED_EXTENSIONS = {"pdf", "doc", "docx", "ppt", "pptx", "txt"}
-app.config["MAX_CONTENT_LENGTH"] = 25 * 1024 * 1024
+app.config["MAX_CONTENT_LENGTH"] = 100 * 1024 * 1024
 
 # Set these in Render Environment Variables for production.
 STAFF_NAME = os.environ.get("STAFF_NAME", "Mohit")
